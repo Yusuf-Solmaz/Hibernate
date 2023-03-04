@@ -14,13 +14,20 @@ public class DeleteStudent {
         Session session = factory.getCurrentSession();
 
         try{
-            session.beginTransaction();
+            /*session.beginTransaction();
 
             Student deletedStudent = session.get(Student.class,2);
             session.delete(deletedStudent);
 
-            session.getTransaction().commit();
+            session.getTransaction().commit();*/
 
+
+            //Deleting with Queries
+            Session session1 = factory.getCurrentSession();
+            session1.beginTransaction();
+
+            session1.createQuery("delete from Student where id=3 ").executeUpdate();
+            session1.getTransaction().commit();
         }
         finally {
             factory.close();
