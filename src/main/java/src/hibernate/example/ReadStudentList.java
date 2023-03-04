@@ -20,10 +20,10 @@ public class ReadStudentList {
         try {
             session.beginTransaction();
             List<Student> students = session.createQuery("from Student where firstName='Yusuf'").list();
-            for(Student elements : students){
-                System.out.println(elements);
-            }
+            show(students);
 
+            List<Student> studentList = session.createQuery("from Student WHERE email LIKE '%gmail.com'").list();
+            show(studentList);
             session.getTransaction().commit();
 
         }
@@ -32,5 +32,11 @@ public class ReadStudentList {
         }
 
 
+    }
+
+    public static void show(List<Student> students) {
+        for(Student elements : students){
+            System.out.println(elements);
+        }
     }
 }
