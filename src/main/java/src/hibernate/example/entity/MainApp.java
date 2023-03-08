@@ -16,11 +16,14 @@ public class MainApp {
         try{
             session.beginTransaction();
 
-            Teacher teacher = new Teacher("Yusuf Mücahit","Solmaz");
+           /* Teacher teacher = new Teacher("Yusuf Mücahit","Solmaz");
             TeacherDetail teacherDetail = new TeacherDetail("Biology","BIM250");
-            teacher.setTeacherDetail(teacherDetail);
+            teacher.setTeacherDetail(teacherDetail);*/
 
-            session.save(teacher);
+            /*session.save(teacher);*/
+
+            Teacher teacher = session.get(Teacher.class,3);
+            session.delete(teacher);
             session.getTransaction().commit();
         }
         finally{
