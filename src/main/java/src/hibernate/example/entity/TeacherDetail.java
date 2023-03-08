@@ -24,8 +24,21 @@ public class TeacherDetail {
     @Column(name = "course_code")
     private String courseCode;
 
+    @OneToOne(mappedBy = "teacherDetail",cascade = CascadeType.ALL)
+    private Teacher teacher;
+
     public TeacherDetail (String courseName,String courseCode){
         this.courseCode=courseCode;
         this.courseName=courseName;
+    }
+
+    @Override
+    public String toString() {
+        return "TeacherDetail{" +
+                "id=" + id +
+                ", courseName='" + courseName + '\'' +
+                ", courseCode='" + courseCode + '\'' +
+                ", teacher=" + teacher +
+                '}';
     }
 }
