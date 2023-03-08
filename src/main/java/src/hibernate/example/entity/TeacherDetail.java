@@ -1,17 +1,16 @@
 package src.hibernate.example.entity;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
 
-@Entity
-@Setter
-@Getter
-@NoArgsConstructor
 @Table(name = "teacher_detail")
+@Entity
+@Getter
+@Setter
+@NoArgsConstructor
 public class TeacherDetail {
 
     @Id
@@ -25,16 +24,8 @@ public class TeacherDetail {
     @Column(name = "course_code")
     private String courseCode;
 
-    public TeacherDetail(String courseName, String courseCode) {
-        this.courseName = courseName;
-        this.courseCode = courseCode;
-    }
-
-    @Override
-    public String toString() {
-        return "TeacherDetail{" +
-                "courseName='" + courseName + '\'' +
-                ", courseCode='" + courseCode + '\'' +
-                '}';
+    public TeacherDetail (String courseName,String courseCode){
+        this.courseCode=courseCode;
+        this.courseName=courseName;
     }
 }

@@ -6,7 +6,6 @@ import org.hibernate.cfg.Configuration;
 
 public class MainApp {
     public static void main(String[] args) {
-
         SessionFactory factory = new Configuration()
                 .addAnnotatedClass(Teacher.class)
                 .addAnnotatedClass(TeacherDetail.class)
@@ -14,14 +13,20 @@ public class MainApp {
 
         Session session = factory.getCurrentSession();
 
-        Teacher teacher = new Teacher("Yusuf","Solmaz");
-        TeacherDetail teacherDetail = new TeacherDetail("Math","BIM 326");
-        teacher.setTeacherDetail(teacherDetail);
+        try{
+            session.beginTransaction();
 
-        session.beginTransaction();
-        session.save(teacher);
-        session.getTransaction().commit();
+            Teacher teacher = new Teacher("Yusuf Mücahit","Solmaz");
+            TeacherDetail teacherDetail = new TeacherDetail("Biology","BIM250");
+            teacher.setTeacherDetail(teacherDetail);
+
+            session.save(teacher);
+            session.getTransaction().commit();
+        }
+        finally{
 
         factory.close();
+        }
     }
+
 }
