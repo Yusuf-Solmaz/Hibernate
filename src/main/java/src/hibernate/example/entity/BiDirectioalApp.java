@@ -21,7 +21,11 @@ public class BiDirectioalApp {
 
             session.getTransaction().commit();
         }
+        catch (Exception exception){
+            exception.printStackTrace();
+        }
         finally {
+            session.close();
             factory.close();
         }
 
