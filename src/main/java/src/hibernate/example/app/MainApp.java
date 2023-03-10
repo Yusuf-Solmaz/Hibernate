@@ -1,8 +1,10 @@
-package src.hibernate.example.entity;
+package src.hibernate.example.app;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import src.hibernate.example.entity.Teacher;
+import src.hibernate.example.entity.TeacherDetail;
 
 public class MainApp {
     public static void main(String[] args) {
