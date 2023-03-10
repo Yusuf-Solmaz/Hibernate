@@ -46,7 +46,6 @@ public class Teacher {
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", teacherDetail=" + teacherDetail.getTeacher() +
                 ", courses=" + courses +
                 '}';
     }

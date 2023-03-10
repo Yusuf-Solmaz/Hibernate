@@ -38,7 +38,7 @@ public class TeacherDetail {
                 "id=" + id +
                 ", courseName='" + courseName + '\'' +
                 ", courseCode='" + courseCode + '\'' +
-                ", teacher=" + teacher +
+
                 '}';
     }
 }
