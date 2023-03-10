@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Table(name = "teacher")
 @Entity
@@ -29,6 +31,10 @@ public class Teacher {
     @JoinColumn(name = "teacher_detail_id")
     private TeacherDetail teacherDetail;
 
+    @OneToMany(mappedBy = "teacher",cascade = {CascadeType.PERSIST,CascadeType.MERGE,
+            CascadeType.DETACH,CascadeType.REFRESH} )
+    private List<Course> courses;
+
     public Teacher (String firstName,String lastName){
         this.firstName=firstName;
         this.lastName=lastName;
@@ -40,7 +46,9 @@ public class Teacher {
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", teacherDetail=" + teacherDetail.getId() +
+                ", teacherDetail=" + teacherDetail.getTeacher() +
+                ", courses=" + courses +
                 '}';
     }
+
 }
