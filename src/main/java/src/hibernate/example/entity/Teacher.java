@@ -52,11 +52,24 @@ public class Teacher {
     }
 
     public void add(Course tempCourse){
-        if (tempCourse == null){
-            courses = new ArrayList<>();
+        if (courses == null){
+            courses = new ArrayList<Course>();
         }
         courses.add(tempCourse);
         tempCourse.setTeacher(this);
     }
+
+    /*Or
+
+    public void add(Course tempCourse,Teacher teacher){
+        if (courses == null){
+            courses = new ArrayList<Course>();
+        }
+        courses.add(tempCourse);
+        tempCourse.setTeacher(teacher);
+    }
+
+    */
+
 
 }
