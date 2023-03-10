@@ -51,4 +51,12 @@ public class Teacher {
                 '}';
     }
 
+    public void add(Course tempCourse){
+        if (tempCourse == null){
+            courses = new ArrayList<>();
+        }
+        courses.add(tempCourse);
+        tempCourse.setTeacher(this);
+    }
+
 }
