@@ -31,7 +31,7 @@ public class Teacher {
     @JoinColumn(name = "teacher_detail_id")
     private TeacherDetail teacherDetail;
 
-    @OneToMany(mappedBy = "teacher",cascade = {CascadeType.PERSIST,CascadeType.MERGE,
+    @OneToMany(fetch = FetchType.EAGER,mappedBy = "teacher",cascade = {CascadeType.PERSIST,CascadeType.MERGE,
             CascadeType.DETACH,CascadeType.REFRESH} )
     private List<Course> courses;
 
